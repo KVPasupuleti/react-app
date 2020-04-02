@@ -1,0 +1,231 @@
+.countries-dashboard-container {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loading-text {
+    font-size: 40px;
+}
+
+.countries-dashboard-header {
+    display :flex;
+    justify-content: space-between;
+    height: 80px;
+    font-family: arial;
+    align-items: center;
+    width: 92%;
+}
+
+.header-line {
+    width: 100%;
+    
+}
+
+.countries-filter-bar {
+    display :flex;
+    justify-content: space-between;
+    height: 80px;
+    font-family: arial;
+    align-items: center;
+    width: 92%;
+}
+
+.countries {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content : space-evenly;
+    width: 97%;
+}
+
+.search-country-container {
+    width: 200px;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 1px grey;
+    display: flex;
+    align-items: center;
+}
+
+.search-country {
+    height: 35px;
+    width: 200px;
+    font-size: 18px;
+    font-family: arial;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 1px grey;
+}
+
+.search-symbol {
+    color: grey;
+}
+
+.header-text {
+    font-size: 18px;
+    font-family: arial;
+}
+
+.select-region {
+    width: 80px;
+    height: 30px;
+    background-color: white;
+}
+
+.theme-mode {
+    border: none;
+    font-family: arial;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.country-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 1px 0px lightgrey;
+    margin-bottom: 20px;
+    width: 22%;
+    object-fit: contain;
+}
+
+.card-image {
+    height: 40%;
+    width: 170%;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.flag-image {
+    height: 200px;
+    width: 100%;
+    margin: 0px;
+    object-fit: cover;
+}
+
+
+.single-flag-image {
+    height: 60%;
+    object-fit: cover;
+    width: 100%;
+}
+
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-size: 18px;
+    flex-wrap: wrap;
+    font-family: arial;
+    width :100%;
+    height: 200px;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.population-text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.single-country-container {
+    display: flex;
+    justify-content: space-between;
+    width: 92vw;
+    height: 70vh;
+}
+
+.single-country-image {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.single-country-text {
+    width: 60%;
+}
+
+.single-country-text-wrapper {
+    height: 50%;
+    display: flex;
+}
+
+.single-country-text-left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.single-country-text-right {
+    width: 50%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.countries-back-button {
+    width: 90px;
+    height: 40px;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 1px grey;
+    margin-left: 37px;
+    font-family: arial;
+    font-size: 14px;
+    align-self: flex-start;
+}
+
+.single-country-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 90vh;
+}
+
+::placeholder {
+    font-size: 14px;
+    font-family: arial;
+}
+
+.border-countries-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.light-country-buttons {
+    height: 40px;
+    color: black;
+    font-size: 12px;
+    background-color: white;
+    border: 2px solid transparent;
+    box-shadow: 1px 1px 1px 1px grey;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+.dark-country-buttons {
+    height: 40px;
+    color: white;
+    font-size: 12px;
+    background-color: #2b3945;
+    border: 2px solid transparent;
+    box-shadow: 1px 1px 1px 1px grey;
+    border-radius: 3px;
+    margin: 5px;
+}
+

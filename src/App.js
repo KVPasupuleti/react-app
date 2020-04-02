@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
+import CountriesDashboardApp from "./components/CountriesDashboard/CountriesDashboardApp";
 
 import "./App.css";
 
@@ -15,6 +16,9 @@ const App = () => {
         </Route>
         <Route path="/">
           <HomePage />
+        </Route>
+        <Route path="/CountriesDashboardApp">
+          <CountriesDashboardApp />
         </Route>
       </Switch>
     </Router>

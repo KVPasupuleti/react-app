@@ -1,0 +1,142 @@
+body {
+    background-color: #f5f5f5;
+}
+
+.completed-to-do {
+    text-decoration: line-through;
+    height: 36px;
+    width: 80%;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    font-size: 24px;
+    color: #d9d9d9;
+    border-radius : 0px;
+}
+
+.pending-to-do {
+    text-decoration: none;
+    height: 36px;
+    width: 80%;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    font-size: 24px;
+    color: #4d4d4d;
+    border-radius : 0px;
+}
+
+.check-box {
+    border-radius: 100%;
+    border: 1px solid lightgrey;
+    background-color: white;
+    height: 38px;
+    width: 40px;
+}
+
+.cross-button {
+    border: none;
+    color: rgba(175, 47, 47, 0.2);
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: arial;
+}
+
+.header {
+    font-size: 70px;
+    color: rgba(175, 47, 47, 0.2);
+}
+
+.footer {
+    font-size: 14px;
+    color: #777777;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    
+    width: 100%;
+    box-shadow:
+    /* The top layer shadow */
+    0 1px 1px rgba(0,0,0,0.15),
+    /* The second layer */
+    0 10px 0 -5px #eee,
+    /* The second layer shadow */
+    0 10px 1px -4px rgba(0,0,0,0.15),
+     /* The third layer */
+    0 20px 0 -10px #eee,
+    /* The third layer shadow */
+    0 20px 1px -9px rgba(0,0,0,0.15);
+    /* Padding for demo purposes */
+    
+}
+
+.hidden-footer {
+    display: none;
+}
+
+.no-of-items-left-count {
+    width: 25%;
+}
+
+.filter-buttons {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.active-button {
+    border-color: rgba(175, 47, 47, 0.2);
+    font-size: 14px;
+    color: #777777;
+}
+
+.inactive-button {
+    border: none;
+    font-size: 14px;
+    color: #777777;
+}
+
+
+.to-do-container {
+    width: 60%;
+    border: 1px solid lightgrey;
+    box-shadow: -1px -1px lightgrey;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.to-do {
+    width: 99.3%;
+    height: 50px;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-input {
+    width: 95.2%;
+    height: 40px;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    font-size: 24px;
+}
+
+.visible-clear-completed-button {
+    display: block;
+    border: none;
+    font-size: 14px;
+    width: 25%;
+    color: #777777;
+}
+
+.hidden-clear-completed-button {
+    display: none;
+}

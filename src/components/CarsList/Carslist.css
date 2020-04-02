@@ -1,0 +1,10 @@
+.garage {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.new-car {
+    display: flex;
+    flex-direction: column;
+}
