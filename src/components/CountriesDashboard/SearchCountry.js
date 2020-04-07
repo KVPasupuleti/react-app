@@ -1,7 +1,7 @@
 import React from 'react';
 import { GoSearch } from 'react-icons/go';
 
-class SearchCountry extends React.Component {
+class SearchCountry extends React.PureComponent {
     state = {
         searchText: ""
     }
@@ -11,22 +11,26 @@ class SearchCountry extends React.Component {
     }
 
     onSubmitSearchText = (e) => {
-        this.props.filterCountriesByName(this.state.searchText.trim());
+
+        const searchText = this.state.searchText;
+        this.props.filterCountriesByName(searchText.trim());
         e.preventDefault();
     }
 
     render() {
-        const { selectedTheme, themeOptions } = this.props;
-        const { backgroundColor, color } = themeOptions[selectedTheme];
+
+
+        const { selectedTheme } = this.props;
+        const { backgroundColor, color } = selectedTheme;
 
         return (
             <form onSubmit={this.onSubmitSearchText} className="search-country-container">
             
-            <span className="search-symbol"><GoSearch /></span>
+                <span className="search-symbol"><GoSearch /></span>
             
-            <input onChange={this.onChangeSearchText} value={this.state.searchText} type="text" 
-            placeholder="Search for a country" className="search-country" 
-            style={{color:color , backgroundColor:backgroundColor}}/>
+                <input onChange={this.onChangeSearchText} value={this.state.searchText} type="text" 
+                placeholder="Search for a country" className="search-country" 
+                style={{color:color , backgroundColor:backgroundColor}}/>
             
             </form>
         );

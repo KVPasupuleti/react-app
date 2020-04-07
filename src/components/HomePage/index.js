@@ -10,6 +10,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -18,8 +19,15 @@ function App() {
         >
           Learn React
         </a>
+        
         <Link to="/page-1">Page 1</Link>
-        <Link to="/CountriesDashboardApp">CountriesDashboardApp</Link>
+        
+        <Link to="/countriesDashboard">CountriesDashboardApp</Link>
+        
+        <Link to="/emojiGame">EmojiGame</Link>
+        
+        <Link to="/react-practice">React Practice</Link>
+      
       </header>
     </div>
   );

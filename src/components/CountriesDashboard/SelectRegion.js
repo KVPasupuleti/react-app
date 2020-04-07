@@ -13,25 +13,27 @@ class SelectRegion extends React.Component {
     }
 
     getOptions = () => {
+
         const { allCountries } = this.props;
-        
+
         let allRegions = allCountries.map(eachCountry => eachCountry.region);
-        
+
         allRegions = [...new Set(allRegions)];
         allRegions.unshift("All");
-        
-        const regions = (allRegions.map((eachRegion, index) => {
-            return <option key={index} value={eachRegion}>{eachRegion}</option>;
+
+        const regions = (allRegions.map((eachRegion) => {
+            this.id += 1;
+            return <option key={this.id} value={eachRegion}>{eachRegion}</option>;
         }));
         return regions;
     }
 
     render() {
-        const { selectedTheme, themeOptions } = this.props;
-        const { color } = themeOptions[selectedTheme];
+        const { selectedTheme } = this.props;
+        const { color } = selectedTheme;
 
         return (
-            <select className="select-region" onChange={this.onChangeSelectedRegion} style={{color:color}}>
+            <select className="select-region" value={this.state.selectedRegion} onChange={this.onChangeSelectedRegion} style={{color:color}}>
             {this.getOptions()}    
             </select>
         );

@@ -4,50 +4,33 @@ import CountriesFilterBar from './CountriesFilterBar';
 import Countries from './Countries';
 import NavBar from '../FormComponents/NavBar';
 import './CountriesDashboardApp.css';
+import { CountriesContainer, Paragraph } from './CSS.js';
 /* global fetch*/
 
 class CountriesDashboardApp extends React.Component {
 
     state = {
         countries: [],
-        selectedTheme: "light",
         searchText: "",
         selectedRegion: "All",
         loadingText: "Loading...."
     }
 
-    themeOptions = {
-        light: {
-            id: "0",
-            name: "light",
-            color: "black",
-            backgroundColor: "#fff",
-            displayText: "Light Mode"
-        },
-        dark: {
-            id: "1",
-            name: "dark",
-            color: "white",
-            backgroundColor: "#2b3945",
-            displayText: "Dark Mode"
-        }
-    }
-
     allCountries = [];
 
-    componentDidMount = () => {
-        this.setState({ selectedTheme: window.localStorage.getItem("selectedTheme") });
+    componentDidMount() {
         this.getCountries();
     }
 
-    getCountries = () => {
-        setTimeout(() => {
+    getCountries = async() => {
+
+        await setTimeout(() => {
             fetch("https://restcountries.eu/rest/v2/all").then(response => {
                     return response.json();
                 })
                 .then(json => {
                     this.allCountries = json;
-                    this.setState({ countries: this.allCountries, loadingText: "" });
+                    this.setState({ countries: this.allCountries });
                 });
         }, 1000);
     }
@@ -77,10 +60,8 @@ class CountriesDashboardApp extends React.Component {
 
         let errorText = "";
 
-
-
         if (countriesList.length === 0)
-            errorText = "Invalid Input";
+            errorText = "No Country Found";
         else
             errorText = "";
 
@@ -89,34 +70,46 @@ class CountriesDashboardApp extends React.Component {
     }
 
     onChangeTheme = (themeOption) => {
-        this.setState({ selectedTheme: themeOption });
+        this.props.onChangeTheme(themeOption);
     }
 
     render() {
-        const { countries, selectedTheme } = this.state;
-        console.log(this.themeOptions[selectedTheme]);
-        const { backgroundColor } = this.themeOptions[selectedTheme];
+        /*
+                if (this.props.selectedTheme === null)
+                    return;
+        */
+
+        const { countries } = this.state;
+        const { selectedTheme } = this.props;
+        const { backgroundColor } = selectedTheme;
+
+
         return (
+
             <div className="countries-dashboard-container" style={{backgroundColor: backgroundColor}}>
             
                 <NavBar title="Countries Dashboard App"/>
-                <div  className="container">
+                
+                <CountriesContainer>
             
-                <Header selectedTheme={selectedTheme} onChangeTheme={this.onChangeTheme} themeOptions={this.themeOptions}/>
+                <Header selectedTheme={selectedTheme} onChangeTheme={this.onChangeTheme} />
+            
+                <Paragraph >Checking Emotion and Tailwind</Paragraph>
             
                 <hr className="header-line" ></hr>
             
                 <CountriesFilterBar filterCountriesByName={this.filterCountriesByName}
-                filterCountriesByRegion={this.filterCountriesByRegion} themeOptions={this.themeOptions}
-                selectedTheme={this.state.selectedTheme}  allCountries={this.allCountries}/>
+                filterCountriesByRegion={this.filterCountriesByRegion} 
+                selectedTheme={selectedTheme}  allCountries={this.allCountries}/>
             
-                <Countries countries={countries} selectedTheme={this.state.selectedTheme}
+                <Countries countries={countries} selectedTheme={selectedTheme}
                 filterCountriesByClick={this.filterCountriesByClick} 
-                allCountries={this.allCountries} themeOptions={this.themeOptions}/>
+                allCountries={this.allCountries} />
                 <p className="loading-text">{this.state.loadingText}</p>
-                </div>
+                </CountriesContainer>
             
             </div>
+
         );
     }
 }

@@ -1,15 +1,28 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Header from './Header';
+/*global fetch*/
 
-class SingleCountryCard extends React.Component {
+class SingleCountryCard extends React.PureComponent {
 
     state = {
         country: JSON.parse(window.localStorage.getItem("country")),
-        selectedTheme: window.localStorage.getItem("selectedTheme")
+        allCountries: []
     }
 
-    id = 0;
+    borderId = 0;
+
+    componentDidMount = () => {
+        this.getCountries();
+    }
+
+    getCountries = async() => {
+        const response = await fetch("https://restcountries.eu/rest/v2/all");
+        const json = await response.json();
+
+        this.setState({ allCountries: json });
+    }
+
 
     navigate = () => {
         this.props.history.goBack();
@@ -17,47 +30,55 @@ class SingleCountryCard extends React.Component {
 
     onClickBorderCountry = (e) => {
         const alpha3Code = e.target.value;
-        const allCountries = JSON.parse(window.localStorage.getItem("allCountries"));
+        const allCountries = this.state.allCountries.slice(0);
         const selectedCountry = allCountries.filter(eachCountry => eachCountry.alpha3Code === alpha3Code);
-        
+
         if (selectedCountry.length > 0) {
-            this.props.history.push(`country-dashboard-app/details/${selectedCountry[0].alpha3Code}`);
             this.setState({ country: selectedCountry[0] });
         }
     }
 
-    onChangeSingleCountryTheme = (themeOption) => {
-        window.localStorage.setItem("selectedTheme", themeOption);
-        this.setState({ selectedTheme: themeOption });
+    onChangeTheme = (themeOption) => {
+        this.props.onChangeTheme(themeOption);
     }
 
     getCurrenciesOrLanguages = (inputParam) => {
-        const outputList = this.state.country[inputParam].map(eachCurrency => eachCurrency.name).join(', ');
+        const outputList = this.state.country[inputParam].map(eachParam => eachParam.name).join(', ');
         return outputList;
     }
 
     getBorderButtons = () => {
-        const { country, selectedTheme } = this.state;
-        const allCountries = JSON.parse(window.localStorage.getItem("allCountries"));
-        const borderCountries = country.borders.map((eachBorder) => {
-            const eachCountry = allCountries.filter((eachCountry) => eachCountry.alpha3Code === eachBorder);
-            this.id += 1;
-            if (eachCountry.length > 0)
-                return <button onClick={this.onClickBorderCountry} className={selectedTheme==="light"?"light-country-buttons":"dark-country-buttons"} key={this.id} value={eachBorder}>{eachCountry[0].name}</button>;
-        });
-        return borderCountries;
+        if (this.state.allCountries.length > 0) {
+            const { country } = this.state;
+            const { selectedTheme } = this.props;
+            const allCountries = this.state.allCountries.slice(0);
+
+
+
+            const borderCountries = country.borders.map((eachBorder) => {
+                const eachCountry = allCountries.filter((eachCountry) => eachCountry.alpha3Code === eachBorder);
+                this.borderId += 1;
+
+                return <button onClick={this.onClickBorderCountry} className={selectedTheme==="light"?"light-country-buttons":"dark-country-buttons"} key={this.borderId} value={eachBorder}>{eachCountry[0].name}</button>;
+            });
+            return borderCountries;
+        }
     }
 
     render() {
-        const { country, selectedTheme } = this.state;
-        const themeOptions = JSON.parse(window.localStorage.getItem("themeOptions"));
-        const { backgroundColor, color } = themeOptions[selectedTheme];
+        const { country } = this.state;
+        const { selectedTheme } = this.props;
+        const { backgroundColor, color } = selectedTheme;
+
+        if (country === null)
+            return null;
+
         return (
 
             <div className="single-country-wrapper" style={{color:color, backgroundColor:backgroundColor}}>
                 
-                <Header onChangeSingleCountryTheme={this.onChangeSingleCountryTheme}
-                selectedTheme={selectedTheme} themeOptions={themeOptions}/>
+                <Header onChangeTheme={this.onChangeTheme}
+                selectedTheme={selectedTheme} />
                 
                 <hr className="header-line" ></hr>
                                 

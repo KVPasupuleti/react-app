@@ -193,6 +193,7 @@ module.exports = {
       '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
+      custom: "0 3px 6px #999, 0 3px 6px #999",
       none: 'none',
     },
     container: {},
@@ -269,6 +270,7 @@ module.exports = {
       ...theme('spacing'),
       full: '100%',
       screen: '100vh',
+      winOrLoseHeight: '25rem'
     }),
     inset: {
       '0': '0',
