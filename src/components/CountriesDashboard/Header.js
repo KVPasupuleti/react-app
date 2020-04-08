@@ -5,13 +5,21 @@ class Header extends React.PureComponent {
 
     onChangeTheme = () => {
 
-        const themeOption = this.props.selectedTheme === "light" ? "dark" : "light";
+        const { selectedTheme } = this.props;
+
+        const themeOption = this.props.selectedTheme.name === "light" ? "dark" : "light";
+
+        console.log(themeOption);
+
         this.props.onChangeTheme(themeOption);
+
+
     }
 
     render() {
 
         const { selectedTheme } = this.props;
+
         const { color } = selectedTheme;
 
         return (

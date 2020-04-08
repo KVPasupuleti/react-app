@@ -1,18 +1,32 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { observer } from 'mobx-react';
+
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
 import CountriesDashboardApp from "./components/CountriesDashboard/CountriesDashboardApp.js";
 import SingleCountryCard from "./components/CountriesDashboard/SingleCountryCard.js";
 import EmojiGame from "./components/EmojiGameDashboard/EmojiGameFolder/EmojiGame.js";
 import ReactPractice from "./components/react-practice/reactPractice.js";
+//import CounterPage from './components/CounterPage';
+import Counter from './components/CounterDashboard/Counter';
+
+
+import themeStore from './stores/themeStore';
 
 import "./App.css";
 
+
+
+@observer
 class App extends React.Component {
 
-  state = {
-    selectedTheme: "emojiGameLight"
+  getCurrentTheme = () => {
+    return themeStore.selectedTheme;
+  }
+
+  onChangeTheme = (theme) => {
+    themeStore.setCurrentTheme(theme);
   }
 
   themeOptions = {
@@ -52,9 +66,6 @@ class App extends React.Component {
 
   }
 
-  onChangeTheme = (themeOption) => {
-    this.setState({ selectedTheme: this.themeOptions[themeOption] });
-  }
 
 
   render() {
@@ -63,26 +74,32 @@ class App extends React.Component {
       <Router basename={process.env.PUBLIC_URL}>
       
       <Switch>
+       
+       
         <Route exact path="/page-1">
           <Page1 />
         </Route>
         
         <Route path="/countriesDashboard">
            <CountriesDashboardApp onChangeTheme={this.onChangeTheme} 
-           selectedTheme={this.themeOptions[this.state.selectedTheme]} />
+           selectedTheme={this.themeOptions[this.getCurrentTheme()]} />
         </Route>
                   
         <Route path = "/emojiGame">
-          <EmojiGame selectedTheme={this.state.selectedTheme} onChangeTheme={this.onChangeTheme}/>
+          <EmojiGame selectedTheme={this.getCurrentTheme()} onChangeTheme={this.onChangeTheme}/>
         </Route>
         
         <Route path = "/react-practice">
           <ReactPractice />
         </Route>
         
+        <Route path = "/counter-dashboard">
+          <Counter />
+        </Route>
+        
         <Route path = "/:id"
           children = { <SingleCountryCard onChangeTheme={this.onChangeTheme} 
-          selectedTheme={this.themeOptions[this.state.selectedTheme]} />}/>
+          selectedTheme={this.themeOptions[this.getCurrentTheme()]} />}/>
         
         
         <Route path="/">

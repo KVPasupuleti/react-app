@@ -26,6 +26,8 @@ function App() {
         
         <Link to="/emojiGame">EmojiGame</Link>
         
+        <Link to="/counter-dashboard">Counter</Link>
+        
         <Link to="/react-practice">React Practice</Link>
       
       </header>
