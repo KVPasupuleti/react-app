@@ -36,7 +36,7 @@ class Counter extends React.Component {
                 
                 <ButtonsContainer>
                     
-                    <IncrementButton onClick={this.incrementCounter}> ++ </IncrementButton>
+                    <IncrementButton onClick={this.incrementCounter}> + </IncrementButton>
                     <input type="number" value={this.getCount()} onChange={this.onChangeCount} style={{ border: "1px solid orange"}, { textAlign: "center"}}/>
                     <DecrementButton onClick={this.decrementCounter}> - </DecrementButton>
 
