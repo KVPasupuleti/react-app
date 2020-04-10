@@ -26,7 +26,11 @@ function App() {
         
         <Link to="/emojiGame">EmojiGame</Link>
         
+        <Link to="/mobx-todolist">Mobx ToDoList</Link>
+
         <Link to="/counter-dashboard">Counter</Link>
+
+        <Link to="/events-app">Events App</Link>
         
         <Link to="/react-practice">React Practice</Link>
       

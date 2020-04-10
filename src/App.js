@@ -2,20 +2,25 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { observer } from 'mobx-react';
 
+
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
 import CountriesDashboardApp from "./components/CountriesDashboard/CountriesDashboardApp.js";
 import SingleCountryCard from "./components/CountriesDashboard/SingleCountryCard.js";
 import EmojiGame from "./components/EmojiGameDashboard/EmojiGameFolder/EmojiGame.js";
+import MobxToDoList from "./components/MobxToDoList/MobxToDoList.js";
 import ReactPractice from "./components/react-practice/reactPractice.js";
-//import CounterPage from './components/CounterPage';
 import Counter from './components/CounterDashboard/Counter';
-
+import EventsApp from './components/EventsPage/EventsApp';
 
 import themeStore from './stores/themeStore';
 
 import "./App.css";
+//import { configure } from "mobx";
 
+
+
+//configure({enforceActions: true}) 
 
 
 @observer
@@ -26,7 +31,8 @@ class App extends React.Component {
   }
 
   onChangeTheme = (theme) => {
-    themeStore.setCurrentTheme(theme);
+    const { setCurrentTheme } = themeStore;
+    setCurrentTheme(theme);
   }
 
   themeOptions = {
@@ -74,21 +80,27 @@ class App extends React.Component {
       <Router basename={process.env.PUBLIC_URL}>
       
       <Switch>
-       
-       
         <Route exact path="/page-1">
           <Page1 />
         </Route>
         
         <Route path="/countriesDashboard">
-           <CountriesDashboardApp onChangeTheme={this.onChangeTheme} 
-           selectedTheme={this.themeOptions[this.getCurrentTheme()]} />
+          <CountriesDashboardApp onChangeTheme={this.onChangeTheme} 
+          selectedTheme={this.themeOptions[this.getCurrentTheme()]} />
         </Route>
                   
         <Route path = "/emojiGame">
           <EmojiGame selectedTheme={this.getCurrentTheme()} onChangeTheme={this.onChangeTheme}/>
         </Route>
         
+        <Route path = "/mobx-todolist">
+          <MobxToDoList />
+        </Route>
+
+        <Route path = "/events-app">
+          <EventsApp />
+        </Route>
+
         <Route path = "/react-practice">
           <ReactPractice />
         </Route>
@@ -101,10 +113,11 @@ class App extends React.Component {
           children = { <SingleCountryCard onChangeTheme={this.onChangeTheme} 
           selectedTheme={this.themeOptions[this.getCurrentTheme()]} />}/>
         
-        
         <Route path="/">
           <HomePage />
         </Route>
+
+        
         
       </Switch>
     </Router>
