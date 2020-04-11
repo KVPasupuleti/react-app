@@ -15,7 +15,7 @@ class EventList extends Component {
     render() {
         return(
             <div>
-                <div>{eventStore.noOfItems}</div>
+                <div>{eventStore.noOfEvents}</div>
                 <div>{this.renderEvents()}</div>
             </div>
         )  
