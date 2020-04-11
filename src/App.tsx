@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { observer } from 'mobx-react';
 import { configure } from 'mobx';
 
-
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
 import CountriesDashboardApp from "./components/CountriesDashboard/CountriesDashboardApp.js";

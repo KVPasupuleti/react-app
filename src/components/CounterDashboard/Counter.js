@@ -6,7 +6,6 @@ import { observer } from 'mobx-react';
 
 import counterStore from '../../stores/CounterStore';
 
-//URMINENGINEER
 @observer
 class Counter extends React.Component {
 
