@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaRegMoon } from 'react-icons/fa';
-
+ 
 class Header extends React.PureComponent {
 
     onChangeTheme = () => {
@@ -25,7 +25,7 @@ class Header extends React.PureComponent {
         return (
             <div className="countries-dashboard-header">
             <span style={{ color : color}} className="header-text"><strong>Where in the world?</strong></span>
-            <button onClick={this.onChangeTheme} className="theme-mode"  style={{ color : color}}><FaRegMoon />  <strong>{selectedTheme.displayText}</strong></button> 
+            <button onClick={this.onChangeTheme} className="theme-mode"  style={{ color : color}}><FaRegMoon /> <strong>{selectedTheme.displayText}</strong></button> 
         </div>
         );
     }
