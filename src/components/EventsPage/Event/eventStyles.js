@@ -11,5 +11,7 @@ let EditEventButton = styled.button`${tw`border border-2`}`;
 
 let DeleteEventButton = styled.button`${tw`border border-2`}`;
 
+let UpdateEventButton = styled.button`${tw`border-blue border-2`}`;
 
-export { EventContainer, EventNameInput, EventLocationInput, EditEventButton, DeleteEventButton };
+
+export { EventContainer, EventNameInput, EventLocationInput, EditEventButton, DeleteEventButton, UpdateEventButton };

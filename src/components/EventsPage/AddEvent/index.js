@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { AddEventContainer, EventNameInput, EventLocationInput, AddEventButton } from './addEventStyles.js';
-import EventList from '../Event';
-import { observable } from 'mobx';
+import eventStore from '../../../stores/EventStore';
+import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
 
 @observer
@@ -16,17 +16,24 @@ class AddEvent extends Component {
         this.eventLocation = ""
     }
 
+    @action.bound
     onAddEvent = (e) => {
         e.preventDefault()
-        console.log("new Event Added", "previous event name:", this.eventName)
+        const eventObject = {
+            name : this.eventName,
+            location: this.eventLocation
+        }
+        eventStore.onAddEvent(eventObject);
         this.eventName = ""
         this.eventLocation = ""
     }
 
+    @action.bound
     onChangeEventName = (e) => {
         this.eventName = e.target.value;
     }
 
+    @action.bound
     onChangeEventLocation = (e) => {
         this.eventLocation = e.target.value;
     }
