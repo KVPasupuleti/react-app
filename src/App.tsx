@@ -9,13 +9,10 @@ import Page1 from "./components/Page1";
 import CountriesDashboardApp from "./components/CountriesDashboard/CountriesDashboardApp.js";
 import SingleCountryCard from "./components/CountriesDashboard/SingleCountryCard.js";
 import EmojiGame from "./components/EmojiGameDashboard/EmojiGameFolder/EmojiGame.js";
-<<<<<<< HEAD
 import A from "./components/react-practice/reactPractice.js";
 
-=======
 import MobxToDoList from "./components/MobxToDoList/MobxToDoList.js";
 import ReactPractice from "./components/react-practice/reactPractice.js";
->>>>>>> ee748dee827784eff634dde62cf0069c9937cd00
 import Counter from './components/CounterDashboard/Counter';
 import EventsApp from './components/EventsPage/EventsApp';
 
@@ -25,12 +22,8 @@ import "./App.css";
 //import { configure } from "mobx";
 
 
-
-<<<<<<< HEAD
-//configure({ enforceActions: true });
-=======
 //configure({enforceActions: true}) 
->>>>>>> ee748dee827784eff634dde62cf0069c9937cd00
+
 
 
 @observer

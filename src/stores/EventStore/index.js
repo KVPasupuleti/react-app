@@ -22,7 +22,7 @@ class EventStore {
         this.events.slice(eventToBeDeleted, 0);
     }
 
-    @action.bound
+    @computed
     get noOfEvents() {
         return this.events.length
     }

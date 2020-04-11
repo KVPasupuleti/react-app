@@ -7,11 +7,7 @@ class ThemeStore {
         this.selectedTheme = "light";
     }
 
-<<<<<<< HEAD
     @action.bound
-=======
-@action.bound
->>>>>>> ee748dee827784eff634dde62cf0069c9937cd00
     setCurrentTheme(theme) {
         this.selectedTheme = theme;
     }
