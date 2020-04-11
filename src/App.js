@@ -1,14 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { observer } from 'mobx-react';
+import { configure } from 'mobx';
 
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
 import CountriesDashboardApp from "./components/CountriesDashboard/CountriesDashboardApp.js";
 import SingleCountryCard from "./components/CountriesDashboard/SingleCountryCard.js";
 import EmojiGame from "./components/EmojiGameDashboard/EmojiGameFolder/EmojiGame.js";
-import ReactPractice from "./components/react-practice/reactPractice.js";
-//import CounterPage from './components/CounterPage';
+import A from "./components/react-practice/reactPractice.js";
+
 import Counter from './components/CounterDashboard/Counter';
 
 
@@ -16,6 +17,8 @@ import themeStore from './stores/themeStore';
 
 import "./App.css";
 
+
+//configure({ enforceActions: true });
 
 
 @observer
@@ -90,7 +93,7 @@ class App extends React.Component {
         </Route>
         
         <Route path = "/react-practice">
-          <ReactPractice />
+          <A />
         </Route>
         
         <Route path = "/counter-dashboard">
