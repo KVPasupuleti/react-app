@@ -3,16 +3,22 @@ import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 
 import { EventContainer, EventNameInput, EventLocationInput, EditEventButton, DeleteEventButton, UpdateEventButton } from './eventStyles';
+import EventModel from '../../../stores/models/Event';
+
+type EventProps = {
+    onDeleteEvent: Function,
+    eventModel: EventModel
+}
 
 @observer
-class Event extends Component {
+class Event extends Component<EventProps> {
 
     @observable isEditEvent
     @observable eventName
     @observable eventLocation
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.isEditEvent = false
         this.eventName = ""
         this.eventLocation = ""
@@ -42,7 +48,6 @@ class Event extends Component {
     }
 
     onEditEvent = () => {
-        alert
         this.isEditEvent = !this.isEditEvent
     }
 

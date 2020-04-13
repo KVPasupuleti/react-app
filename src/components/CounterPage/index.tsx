@@ -1,8 +1,15 @@
+class CounterPage {
+
+}
+
+export { CounterPage }
+
+/*
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 
 import stores from '../../stores'
-const counterStore = stores.counterStore
+const counterStore = stores.CounterStore
 
 type Props = {
   initialCount: number
@@ -34,3 +41,4 @@ class CounterPage extends Component<Props> {
 }
 
 export default CounterPage
+*/

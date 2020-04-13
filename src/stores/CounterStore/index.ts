@@ -30,7 +30,7 @@ class CounterStore {
 
 const counterStore = new CounterStore();
 
-export default counterStore;
+export { counterStore as default, CounterStore };
 
 
 

@@ -1,28 +1,16 @@
 import React from "react";
-import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import mobxToDoStore from '../../stores/MobxToDoStore';
+
 
 import { ToDo } from './toDo';
 import Footer from './Footer';
 import './ToDoList.css';
 
-
 @observer
 class MobxToDoList extends React.Component {
-  
-  
-  @action.bound
-  onChangeCheckBox() {
-      mobxToDoStore.onChangeCheckBox();
-  }
 
-  @action.bound
-  onChangeContent() {
-      mobxToDoStore.onChangeContent();
-  }
-  
   count = -1;
 
 
@@ -31,7 +19,7 @@ class MobxToDoList extends React.Component {
   }
 
   handleFooter = (event) => {
-    let displayToDos = [];
+    let displayToDos:Array<Object> = [];
     switch (event.target.name) {
       case 'all':
         displayToDos = mobxToDoStore.allToDos.filter(eachToDo => eachToDo);

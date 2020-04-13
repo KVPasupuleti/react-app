@@ -1,12 +1,18 @@
-import { observable, action, reaction, isComputed } from "mobx";
+import { observable, action } from "mobx";
 
 import MobxToDoModel from "../models/ToDo";
 
 
-class MobxToDoStore {
+class MobxToDoStore<MobxToDoStoreVariables> {
+
 
 @observable toDoList
 @observable currentStatus 
+    allToDos: Array<MobxToDoModel>;
+    noOfItemsLeft: number;
+    footerVisibility: boolean;
+
+
 
 constructor() {
     this.toDoList = []
@@ -16,36 +22,18 @@ constructor() {
     this.footerVisibility = false
 }
 
-
-/*
-const newTodo = {
-    toDoId: 
-    toDotITLE:
-    isCompleted: 
-}
-
-todos.push(newToDo);
-*/
-
-
-//const newToDo = new ToDo
-
 @action.bound
 addNewToDo(event) {
     if (event.keyCode === 13 && event.target.value !== "") {
         const { toDoList } = this;
         console.log(typeof(MobxToDoModel));
         const newToDo =  new MobxToDoModel(event.target.value);
-        this.toDoList.push(newToDo);
+        toDoList.push(newToDo);
         event.target.value = "";
         this.allToDos.push(newToDo);      
         this.footerVisibility = true;
     }
 }
-
-//toDosAddReaction = reaction(() => this.toDoList.map(toDoModel => toDoModel.isChecked) , (isCheckedArray) => console.log(isCheckedArray))
-
-
 
 @action.bound
 deleteToDo(inputToDoId) {
@@ -59,4 +47,5 @@ deleteToDo(inputToDoId) {
 
 const mobxToDoStore = new MobxToDoStore();
 
-export default mobxToDoStore;
+
+export { mobxToDoStore as default, MobxToDoStore };

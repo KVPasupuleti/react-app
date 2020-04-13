@@ -4,6 +4,7 @@ class EventModel {
 
     @observable name
     @observable location
+    id: number;
 
     constructor(eventObject) {
         this.id = Math.floor(Math.random() * 10000)

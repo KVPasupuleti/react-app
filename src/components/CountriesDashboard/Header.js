@@ -7,7 +7,7 @@ class Header extends React.PureComponent {
 
         const { selectedTheme } = this.props;
 
-        const themeOption = this.props.selectedTheme.name === "light" ? "dark" : "light";
+        const themeOption = selectedTheme.name === "light" ? "dark" : "light";
 
         console.log(themeOption);
 

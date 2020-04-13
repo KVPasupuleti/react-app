@@ -4,9 +4,10 @@ class MobxToDoModel {
 
 @observable toDoContent
 @observable isChecked
+  toDoId: number;
 
 constructor(content) {
-    this.toDoId = Math.floor(Math.random() * 10000) 
+    this.toDoId = Math.floor(Math.random() * 10000)
     this.toDoContent = content
     this.isChecked = false
 }

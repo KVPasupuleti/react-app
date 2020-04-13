@@ -7,7 +7,6 @@ import Page1 from "./components/Page1";
 import CountriesDashboardApp from "./components/CountriesDashboard/CountriesDashboardApp.js";
 import SingleCountryCard from "./components/CountriesDashboard/SingleCountryCard.js";
 import EmojiGame from "./components/EmojiGameDashboard/EmojiGameFolder/EmojiGame.js";
-import A from "./components/react-practice/reactPractice";
 
 import MobxToDoList from "./components/MobxToDoList/MobxToDoList";
 import Counter from './components/CounterDashboard/Counter';
@@ -16,6 +15,8 @@ import EventsApp from './components/EventsPage/EventsApp';
 import themeStore from './stores/themeStore';
 
 import "./App.css";
+import ReactPractice from "./components/react-practice/reactPractice";
+import { types } from "@babel/core";
 //import { configure } from "mobx";
 
 
@@ -34,6 +35,13 @@ class App extends React.Component {
     const { setCurrentTheme } = themeStore;
     setCurrentTheme(theme);
   }
+
+  Person = {
+    firstName : "Krishna",
+    lastName: "Vamsi",
+    age: 18,
+    hobbies:"Eating"
+}
 
   themeOptions = {
     light: {
@@ -102,8 +110,8 @@ class App extends React.Component {
         </Route>
 
         <Route path = "/react-practice">
-          <A />
-        </Route>
+          <ReactPractice Person={this.Person} />
+        </Route> 
         
         <Route path = "/counter-dashboard">
           <Counter />

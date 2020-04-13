@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Header, ButtonsContainer, CounterContainer, IncrementButton, DecrementButton, CountText } from './counterStyles.js';
+import { Header, ButtonsContainer, CounterContainer, IncrementButton, DecrementButton } from './counterStyles';
 
 import { observer } from 'mobx-react';
 
@@ -36,7 +36,7 @@ class Counter extends React.Component {
                 <ButtonsContainer>
                     
                     <IncrementButton onClick={this.incrementCounter}> + </IncrementButton>
-                    <input type="number" value={this.getCount()} onChange={this.onChangeCount} style={{ border: "1px solid orange"}, { textAlign: "center"}}/>
+                    <input type="number" value={this.getCount()} onChange={this.onChangeCount} style={{ textAlign: "center"}}/>
                     <DecrementButton onClick={this.decrementCounter}> - </DecrementButton>
 
                 </ButtonsContainer>
