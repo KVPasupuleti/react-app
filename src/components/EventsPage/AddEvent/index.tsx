@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { AddEventContainer, EventNameInput, EventLocationInput, AddEventButton } from './addEventStyles.js';
-import eventStore from '../../../stores/EventStore';
 import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
+
+import eventStore from '../../../stores/EventStore';
+import { AddEventContainer, EventNameInput, EventLocationInput, AddEventButton } from './addEventStyles';
 
 @observer
 class AddEvent extends Component {
@@ -10,8 +11,8 @@ class AddEvent extends Component {
     @observable eventName
     @observable eventLocation
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.eventName = ""
         this.eventLocation = ""
     }

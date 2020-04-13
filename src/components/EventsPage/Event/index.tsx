@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { EventContainer, EventNameInput, EventLocationInput, EditEventButton, DeleteEventButton, UpdateEventButton } from './eventStyles.js';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
+
+import { EventContainer, EventNameInput, EventLocationInput, EditEventButton, DeleteEventButton, UpdateEventButton } from './eventStyles';
 
 @observer
 class Event extends Component {

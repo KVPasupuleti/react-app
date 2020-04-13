@@ -1,7 +1,7 @@
 import React from "react";
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
-import { enableLogging } from 'mobx-logger';
+
 import mobxToDoStore from '../../stores/MobxToDoStore';
 
 import { ToDo } from './toDo';

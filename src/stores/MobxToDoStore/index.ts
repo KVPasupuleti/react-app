@@ -1,6 +1,6 @@
 import { observable, action, reaction, isComputed } from "mobx";
+
 import MobxToDoModel from "../models/ToDo";
-import { observer } from "mobx-react";
 
 
 class MobxToDoStore {

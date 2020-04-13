@@ -1,17 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { observer } from 'mobx-react';
-import { configure } from 'mobx';
 
 import HomePage from "./components/HomePage";
 import Page1 from "./components/Page1";
 import CountriesDashboardApp from "./components/CountriesDashboard/CountriesDashboardApp.js";
 import SingleCountryCard from "./components/CountriesDashboard/SingleCountryCard.js";
 import EmojiGame from "./components/EmojiGameDashboard/EmojiGameFolder/EmojiGame.js";
-import A from "./components/react-practice/reactPractice.js";
+import A from "./components/react-practice/reactPractice";
 
-import MobxToDoList from "./components/MobxToDoList/MobxToDoList.js";
-import ReactPractice from "./components/react-practice/reactPractice.js";
+import MobxToDoList from "./components/MobxToDoList/MobxToDoList";
 import Counter from './components/CounterDashboard/Counter';
 import EventsApp from './components/EventsPage/EventsApp';
 

@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx';
 
 class ThemeStore {
-    @observable selectedTheme
+    @observable selectedTheme;
 
     constructor() {
         this.selectedTheme = "light";

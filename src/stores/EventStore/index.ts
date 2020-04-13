@@ -1,6 +1,7 @@
-import EventModel from '../models/Event';
 import { computed, observable, action } from 'mobx';
-import { observer } from 'mobx-react';
+
+
+import EventModel from '../models/Event';
 
 
 class EventStore {

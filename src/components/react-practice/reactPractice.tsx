@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider, inject, observer } from 'mobx-react';
-import { observable, action } from 'mobx';
+import { observable } from 'mobx';
 
 class A extends React.Component {
     render() {
