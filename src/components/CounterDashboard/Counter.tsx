@@ -21,11 +21,11 @@ class Counter extends React.Component {
   decrementCounter = () => {
     counterStore.decrementCounter();
   }
-
+/*
   onChangeCount = (e) => {
     counterStore.onChangeCount(e.target.value);
   }
-
+*/
 
   render() {
     return (
@@ -36,7 +36,7 @@ class Counter extends React.Component {
                 <ButtonsContainer>
                     
                     <IncrementButton onClick={this.incrementCounter}> + </IncrementButton>
-                    <input type="number" value={this.getCount()} onChange={this.onChangeCount} style={{ textAlign: "center"}}/>
+                    <input type="number" value={this.getCount()}  style={{ textAlign: "center"}}/>
                     <DecrementButton onClick={this.decrementCounter}> - </DecrementButton>
 
                 </ButtonsContainer>

@@ -15,6 +15,10 @@ type Props = {
   initialCount: number
 }
 
+type Props = {
+  initialCount: number
+}
+
 @observer
 class CounterPage extends Component<Props> {
   functionCalling

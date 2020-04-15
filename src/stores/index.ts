@@ -1,7 +1,8 @@
-//import CounterStore from './CounterStore'
+import CounterStore from './CounterStore'
 
-//const counterStore = new CounterStore()
+/*const counterStore = new CounterStore()
 
 export default {
-//  counterStore,
+  counterStore,
 }
+*/
