@@ -16,7 +16,7 @@ import themeStore from './stores/themeStore';
 
 import "./App.css";
 import ReactPractice from "./components/react-practice/reactPractice";
-import { types } from "@babel/core";
+//import { types } from "@babel/core";
 //import { configure } from "mobx";
 
 
