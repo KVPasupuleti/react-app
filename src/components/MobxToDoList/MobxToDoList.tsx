@@ -3,7 +3,6 @@ import { observer } from 'mobx-react';
 
 import mobxToDoStore from '../../stores/MobxToDoStore';
 
-
 import { ToDo } from './toDo';
 import Footer from './Footer';
 import './ToDoList.css';

@@ -2,7 +2,7 @@ module.exports = {
   presets: ['@babel/preset-env'],
   plugins: [
     [
-      '@babel/plugin-proposal-decorators',
+      require('@babel/plugin-proposal-decorators').default,
       {
         legacy: true,
       },

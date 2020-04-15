@@ -9,6 +9,7 @@ import SingleCountryCard from "./components/CountriesDashboard/SingleCountryCard
 import EmojiGame from "./components/EmojiGameDashboard/EmojiGameFolder/EmojiGame.js";
 
 import MobxToDoList from "./components/MobxToDoList/MobxToDoList";
+import GridMemoryGame from "./components/GridMemoryGame";
 import Counter from './components/CounterDashboard/Counter';
 import EventsApp from './components/EventsPage/EventsApp';
 
@@ -16,7 +17,7 @@ import themeStore from './stores/themeStore';
 
 import "./App.css";
 import ReactPractice from "./components/react-practice/reactPractice";
-import { types } from "@babel/core";
+//import { types } from "@babel/core";
 //import { configure } from "mobx";
 
 
@@ -103,6 +104,10 @@ class App extends React.Component {
         
         <Route path = "/mobx-todolist">
           <MobxToDoList />
+        </Route>
+
+        <Route path = "/grid-memorygame">
+          <GridMemoryGame />
         </Route>
 
         <Route path = "/events-app">

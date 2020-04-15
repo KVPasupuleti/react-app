@@ -11,7 +11,6 @@ type RpProps = {
     Person: PersonKeys
 }
 
-
 class ReactPractice extends Component<RpProps> {
 
     name1: String
