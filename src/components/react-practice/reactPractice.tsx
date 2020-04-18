@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { observable, action } from 'mobx';
+import { observer } from 'mobx-react';
 
 type PersonKeys = {
     firstName: string,
@@ -11,8 +13,27 @@ type RpProps = {
     Person: PersonKeys
 }
 
+@observer
 class ReactPractice extends Component<RpProps> {
 
+
+    @observable name = "vamsi"
+
+    @action.bound
+    changeName() {
+        this.name = "Ismav"
+    }
+
+    render() {
+        return(
+        <div>
+            <p>{this.name}</p>
+            <button onClick={this.changeName}>Change Name</button>    
+        </div>
+        );
+    }
+
+    /*
     name1: String
     name2: String
 
@@ -42,12 +63,11 @@ class ReactPractice extends Component<RpProps> {
         return(
         <div>
             <p>Team FEDup</p>
-            {/* {this.printPerson(Person)} */}
-            {/* <p>{this.props.Person["firstName"]}</p> */}
+            
         </div>
         );
     }
-    
+    */
 }
 
 export default ReactPractice;
@@ -77,7 +97,6 @@ class B extends React.Component {
     
 
     @observable name
-
 
     onChange = (e) => {
         this.name = e.target.value;
