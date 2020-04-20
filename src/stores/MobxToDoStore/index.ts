@@ -23,23 +23,22 @@ constructor() {
 }
 
 @action.bound
-addNewToDo(event) {
-    if (event.keyCode === 13 && event.target.value !== "") {
+addNewToDo(value) {
+    //if (event.keyCode === 13 && event.target.value !== "") {
         const { toDoList } = this;
-        console.log(typeof(MobxToDoModel));
-        const newToDo =  new MobxToDoModel(event.target.value);
+        const newToDo =  new MobxToDoModel(value);
         toDoList.push(newToDo);
-        event.target.value = "";
+        value = "";
         this.allToDos.push(newToDo);      
         this.footerVisibility = true;
-    }
+   // }
 }
 
 @action.bound
 deleteToDo(inputToDoId) {
     const { toDoList } = this;
     const deletedToDoId = inputToDoId;
-    this.toDoList = toDoList.filter(eachToDo => eachToDo.toDoId !== deletedToDoId);
+    this.toDoList = toDoList.filter(eachToDo => eachToDo.id !== deletedToDoId);
     this.allToDos = this.toDoList
 }
 

@@ -2,24 +2,24 @@ import { observable, action } from "mobx";
 
 class MobxToDoModel {
 
-@observable toDoContent
-@observable isChecked
-  toDoId: number;
+@observable title
+@observable isCompleted
+  id: number;
 
 constructor(content) {
-    this.toDoId = Math.floor(Math.random() * 10000)
-    this.toDoContent = content
-    this.isChecked = false
+    this.id = Math.floor(Math.random() * 10000)
+    this.title = content
+    this.isCompleted = false
 }
 
 @action.bound
   onChangeCheckBox() {
-    this.isChecked = !(this.isChecked)
+    this.isCompleted = !(this.isCompleted)
   }
 
   @action.bound
   onChangeContent (updatedToDoContent) {
-    this.toDoContent = updatedToDoContent
+    this.title = updatedToDoContent
   }
 
 }

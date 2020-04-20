@@ -1,15 +1,30 @@
 import { observable, action } from 'mobx';
 
 class ThemeStore {
-    @observable selectedTheme;
+    @observable selectedTheme:string;
 
     constructor() {
-        this.selectedTheme = "light";
+        this.selectedTheme = "Light";
+    }
+
+    themeObject = {
+        Light: {
+            name: "Light",
+            gameBackgroundColor: "#fff",
+            gameTextColor: "black",
+        },
+
+        Dark: {
+            name: "Dark",
+            gameBackgroundColor: "#444f48",
+            gameTextColor: "white",
+        }
     }
 
     @action.bound
-    setCurrentTheme(theme) {
+    onChangeSelectedTheme(theme: string) {
         this.selectedTheme = theme;
+        console.log(this.selectedTheme)
     }
 }
 
