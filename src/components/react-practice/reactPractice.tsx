@@ -16,7 +16,6 @@ type RpProps = {
 @observer
 class ReactPractice extends Component<RpProps> {
 
-
     @observable name = "vamsi"
 
     @action.bound
@@ -24,11 +23,24 @@ class ReactPractice extends Component<RpProps> {
         this.name = "Ismav"
     }
 
+    renderArrayMethods = () => {
+        let defaultTodos = new XMLHttpRequest()
+
+        fetch("https://todo-list-1.getsandbox.com/todos", {
+            method: "GET", 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        }).then(response => response.json()).then(json => console.log(json))
+    }
+
     render() {
         return(
         <div>
             <p>{this.name}</p>
-            <button onClick={this.changeName}>Change Name</button>    
+            <button onClick={this.renderArrayMethods}>Render Arrays</button>    
+            {this.renderArrayMethods()}
         </div>
         );
     }
