@@ -70,7 +70,8 @@ class MobxToDoList extends React.Component {
                 <input type="text" placeholder="Enter new todo" className="user-input" onKeyDown={this.addNewToDo}/>
                 {this.renderToDoList()}
                 
-                <Footer handleFooter={this.handleFooter}
+                <Footer handleFooter={this.han
+                dleFooter}
                 noOfItemsLeft={mobxToDoStore.noOfItemsLeft}
                 totalNoOfItems={mobxToDoStore.allToDos.length}
                 currentStatus={mobxToDoStore.currentStatus}

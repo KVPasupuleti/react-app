@@ -9,7 +9,7 @@ function Home() {
                   <Link to="/carsList">CarsList</Link>
                 </li>
                 <li>
-                  <Link to="/toDoList">ToDoList</Link>
+                  <Link to="/to-do-list">ToDoList</Link>
                 </li>
                 <li>
                   <Link to="/form">Form Components</Link>
