@@ -1,20 +1,19 @@
 import { observable, action } from "mobx";
 
-import MobxToDoModel from "../models/ToDo";
+import MobxToDoModel from "../models/ToDo"; 
 
-
-class MobxToDoStore<MobxToDoStoreVariables> {
-
+class MobxToDoStore {
 
 @observable toDoList
 @observable currentStatus 
+
     allToDos: Array<MobxToDoModel>;
     noOfItemsLeft: number;
     footerVisibility: boolean;
 
 
-
 constructor() {
+
     this.toDoList = []
     this.currentStatus = "all"
     this.allToDos = []
@@ -44,7 +43,6 @@ deleteToDo(inputToDoId) {
 
 }
 
-const mobxToDoStore = new MobxToDoStore();
+const mobxToDoStore = new MobxToDoStore
 
-
-export { mobxToDoStore as default, MobxToDoStore };
+export default mobxToDoStore

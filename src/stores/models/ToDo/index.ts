@@ -6,10 +6,10 @@ class MobxToDoModel {
 @observable isCompleted
   id: number;
 
-constructor(content) {
+constructor(todoObject) {
     this.id = Math.floor(Math.random() * 10000)
-    this.title = content
-    this.isCompleted = false
+    this.title = todoObject.title
+    this.isCompleted = todoObject.isCompleted
 }
 
 @action.bound

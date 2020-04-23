@@ -28,7 +28,12 @@ function App() {
         
         <Link to="/mobx-todolist">Mobx ToDoList</Link>
 
+        <Link to="/api-todo-app">Api Todo App</Link>
+
+
         <Link to="/grid-memory-game">Grid Memory Game</Link>
+
+        <Link to="/users-page">Users Page</Link>
 
         <Link to="/counter-dashboard">Counter</Link>
 
