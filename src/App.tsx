@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Provider } from "mobx-react";
+import { Provider, observer } from "mobx-react";
 
 import ToDoList from './components/to-do-list/ToDoList';
 import GridMemoryGame from './components/GridMemoryGame';
@@ -14,8 +14,17 @@ import EventsApp from "./components/EventsPage/EventsApp";
 import ReactPractice from "./components/react-practice/reactPractice";
 import EmojiGame from "./components/EmojiGameDashboard/EmojiGameFolder/EmojiGame";
 import UsersPage from "./components/UsersPage";
-import stores from './stores';
+// import stores from './stores';
+import stores from './common/stores';
+import Home from "./components/Home/Home";
+import LoginPage from "./components/LoginPage";
+import loginStore from './stores/LoginStore';
+import { ProductsPage } from "./EcommerceProductsDashboard/components/ProductsPage";
+import { ProductsPageRoute } from "./EcommerceProductsDashboard/routes/ProductsPageRoute";
+import { SizeFilter } from "./SizeFilterModule/components/SizeFilter";
+import { SignInPage } from "./Authentication/components/SignInPage";
 
+@observer
 class App extends React.Component{
 
   render() {
@@ -23,30 +32,14 @@ class App extends React.Component{
     <Provider {...stores}>
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
-        <Route exact path="/page-1">
-          <Page1 />
-        </Route>
-        <Route exact path="/grid-memory-game">
-          <GridMemoryGame />
-        </Route>
-        
-        
-        <Route exact path="/mobx-todolist" component={MobxToDoList}></Route>
-        <Route exact path="/users-page" component={UsersPage}></Route>
-        <Route exact path="/api-todo-app" component={ApiTodoApp}></Route>
-        
-        
-        <Route exact path="/events-app">
-          <EventsApp />
-        </Route>
-        {/* <Route exact path="/react-practice">
-          <ReactPractice />
-        </Route> */}
-        <Route exact path="/emojiGame">
-          <EmojiGame />
-        </Route>
-        <Route path="/">
-          <HomePage />
+      <Route exact path="/e-commerce-app" component={ProductsPage}></Route>
+      
+      <Route exact path="/size-filter-module" component={SizeFilter}></Route>
+
+      <Route exact path="/signin-page" component={SignInPage}></Route>
+
+      <Route path="/">
+          <Home />
         </Route>
       </Switch>
     </Router>

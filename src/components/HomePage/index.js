@@ -4,20 +4,7 @@ import logo from "../../logo.svg";
 
 class App extends React.Component {
 
-  gotoGridScreenIfLoggedIn = () => {
-    return (
-      <Redirect
-      to={{
-        pathname: '/grid-memory-game', 
-      }}
-      />
-    );
-  }
-
   render() {
-    if (true) {
-      return this.gotoGridScreenIfLoggedIn();
-    }
     return (
       <div className="App">
       <header className="App-header">

@@ -3,9 +3,10 @@ import CellModel from '../../../stores/models/Cell';
 import { observer } from 'mobx-react';
 import { observable, action } from 'mobx';
 import { CellButton } from './styles';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 
-type CellProps = {
+interface CellProps extends RouteComponentProps {
     eachCell: CellModel
     width: number
     level: number
@@ -29,6 +30,9 @@ class Cell extends Component<CellProps> {
         const { eachCell, onCellClick } = this.props
         this.isClickedOnCell = true
         onCellClick(eachCell.id)
+        if(eachCell.isHidden === false) {
+            this.props.history.replace('/login-page');
+        }
     }
 
     render() {
@@ -43,4 +47,4 @@ class Cell extends Component<CellProps> {
     }
 }
 
-export default Cell;
+export default withRouter(Cell);
