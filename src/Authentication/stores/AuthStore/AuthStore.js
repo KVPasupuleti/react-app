@@ -1,33 +1,45 @@
 import { observable, action } from 'mobx'
 import { bindPromiseWithOnSuccess } from '@ib/mobx-promise'
 import Cookies from 'js-cookie'
+import { API_INITIAL } from '@ib/api-constants'
 
 class AuthStore {
-    @observable username = ""
-    @observable password = ""
-    @observable noOfSubmissions = 0
-    @observable isLoggedIn = false
-    @observable access_token = ''
+    @observable username
+    @observable password
+    @observable noOfSubmissions
+    @observable isLoggedIn 
+    @observable access_token
     @observable getAuthAPIError
     @observable getAuthAPIStatus
 
     authService
-
+        
     constructor(authService) {
         this.authService = authService
+        this.init()
+    }
+
+    init() {
+        this.username = ''
+        this.password = ''
+        this.noOfSubmissions = 0
+        this.isLoggedIn = false
+        this.access_token = ''
+        this.getAuthAPIError = null
+        this.getAuthAPIStatus = API_INITIAL
     }
 
     @action.bound
     getAuthToken() {
-        console.log(Cookies.get('username'))
-        let username = Cookies.get('username')
-        let password = Cookies.get('password')
-        if(username !== undefined && password !== undefined) {
+        // let username = Cookies.get('username')
+        // let password = Cookies.get('password')
+        // if(username !== undefined && password !== undefined) {
         const authPromise = this.authService.getAuthAPI()
+        
         return bindPromiseWithOnSuccess(authPromise)
         .to(this.setGetAuthAPIStatus, this.setGetAuthAPIResponse)
-        .then(this.setgetAuthAPIError)
-        }
+        .catch(this.setgetAuthAPIError)
+        // } 
     }
 
     @action.bound
@@ -60,17 +72,14 @@ class AuthStore {
             Cookies.set("username", this.username)
             Cookies.set("password", this.password)
             this.isLoggedIn = true
-            this.username = ""
-            this.password = ""
             this.getAuthToken()
-            // window.localStorage.setItem("isLoggedIn", JSON.stringify(true))
         }
         else {
             this.isLoggedIn = false
-            // window.localStorage.setItem("isLoggedIn", false)
         }
     }
 
+    
     updateUsername = (username) => {
         this.username = username
     }

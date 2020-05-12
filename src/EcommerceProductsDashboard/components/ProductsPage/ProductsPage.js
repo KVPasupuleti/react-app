@@ -7,10 +7,12 @@ import LoadingWrapperWithFailure from "../../../components/common/LoadingWrapper
 import { ProductCart } from "../../../ShoppingCart/components/ProductCart";
 import authStore from '../../../common/stores'
 import { ProductsPageContainer, ProductsDashboardContainer, HeaderAndProductsListContainer, SignOutButton } from "./styles";
+import { withRouter } from "react-router-dom";
 
 @inject('productStore', 'cartStore', 'authStore')
 @observer
 class ProductsPage extends Component {
+    hello = this.props.productStore
     componentDidMount() {
         this.doNetworkCalls()
     }
@@ -61,4 +63,4 @@ class ProductsPage extends Component {
     }
 }
 
-export default ProductsPage
+export default withRouter(ProductsPage)

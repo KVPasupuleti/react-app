@@ -4,9 +4,9 @@ test("this should return", () => {
     expect('team').toMatch(/ea/)
 })
 
-test("don't add strings", () => {
-    expect(false).toBeFalsy()
-})
+// test("don't add strings", () => {
+//     expect(6).toBeGreaterThan(5)
+// })
 
 // describe("add function", () => {
 //     it("should return the sum of two numbers", () => {

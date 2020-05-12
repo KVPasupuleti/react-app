@@ -8,14 +8,16 @@ class SearchBar extends Component {
 
     @action.bound
     onSubmitSearchText(event) {
+        alert(1)
         const { onSubmitSearchText } = this.props
-        if(event.keyCode === 13)
+        if(event.keyCode === 13) {
             onSubmitSearchText(event.target.value)
+        }
     }
 
     render() {
         return (
-            <ProductSearchBar onKeyDown={this.onSubmitSearchText} placeholder="Search product"/>
+            <ProductSearchBar onKey={this.onSubmitSearchText} placeholder="Search product"/>
         )
     }
 }

@@ -21,6 +21,8 @@ class App extends React.Component {
         >
           Learn React
         </a>
+
+        <Link to="/exam-problems">Exam Problems</Link>
         
         <Link to="/page-1">Page 1</Link>
         
@@ -41,7 +43,6 @@ class App extends React.Component {
 
         <Link to="/events-app">Events App</Link>
         
-        <Link to="/react-practice">React Practice</Link>
       
       </header>
     </div>

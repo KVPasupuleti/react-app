@@ -14,17 +14,24 @@ class ProductStore {
     originalProducts
 
     constructor(productService) {
-        this.productList = [] 
+        this.productsAPIService = productService
+        this.init()
+    }
+
+    init() {
+        this.productList = []
         this.getProductListAPIStatus = API_INITIAL
         this.getProductListAPIError = null
-        this.productsAPIService = productService
         this.sizeFilter = []
         this.sortBy = 'ASCENDING'
+        this.searchText = ""
     }
 
     @action.bound
     getProductList() {
+        
         const productsPromise = this.productsAPIService.getProductsAPI()
+        
         return bindPromiseWithOnSuccess(productsPromise)
         .to(this.setGetProductListAPIStatus, this.setProductListResponse)
         .catch(this.setProductListAPIError)
@@ -93,8 +100,6 @@ class ProductStore {
 
     @computed
     get sortedAndFilteredProducts() {
-        console.log("HelloWorld", this.products)
-
         let filteredArray = this.products.filter(eachProduct => {
             let subSet =  this.sizeFilter.some(function checkPresence(eachSize) {
                 return eachProduct.availableSizes.indexOf(eachSize) !== -1

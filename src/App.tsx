@@ -11,7 +11,7 @@ import "./App.css";
 import MobxToDoList from "./components/MobxToDoList/MobxToDoList";
 import ApiTodoApp from "./components/ApiTodoList"
 import EventsApp from "./components/EventsPage/EventsApp";
-import ReactPractice from "./components/react-practice/reactPractice";
+import Index from "./components/react-practice";
 import EmojiGame from "./components/EmojiGameDashboard/EmojiGameFolder/EmojiGame";
 import UsersPage from "./components/UsersPage";
 // import stores from './stores';
@@ -37,6 +37,10 @@ class App extends React.Component{
       <Route exact path="/size-filter-module" component={SizeFilter}></Route>
 
       <Route exact path="/signin-page" component={SignInPage}></Route>
+
+      {/* <Route exact path="/exam-problems">
+        <Index />
+      </Route> */}
 
       <Route path="/">
           <Home />
