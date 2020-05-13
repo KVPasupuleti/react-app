@@ -11,7 +11,7 @@ import "./App.css";
 import MobxToDoList from "./components/MobxToDoList/MobxToDoList";
 import ApiTodoApp from "./components/ApiTodoList"
 import EventsApp from "./components/EventsPage/EventsApp";
-import Index from "./components/react-practice";
+import { Index, Person } from "./components/react-practice";
 import EmojiGame from "./components/EmojiGameDashboard/EmojiGameFolder/EmojiGame";
 import UsersPage from "./components/UsersPage";
 // import stores from './stores';
@@ -28,6 +28,8 @@ import { SignInPage } from "./Authentication/components/SignInPage";
 class App extends React.Component{
 
   render() {
+    const newPerson = new Person();
+
   return (
     <Provider {...stores}>
     <Router basename={process.env.PUBLIC_URL}>
@@ -39,7 +41,7 @@ class App extends React.Component{
       <Route exact path="/signin-page" component={SignInPage}></Route>
 
       {/* <Route exact path="/exam-problems">
-        <Index />
+        <Index person={newPerson}/>
       </Route> */}
 
       <Route path="/">

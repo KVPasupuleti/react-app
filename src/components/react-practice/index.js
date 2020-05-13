@@ -1,55 +1,43 @@
-import React, { Component } from "react";
+import React from "react";
+import { render } from "react-dom";
+import { observable, computed, autorun, action } from "mobx";
 import { observer } from "mobx-react";
-import { observable, action, computed } from "mobx";
 
-@observer
-export default class Index extends Component {
-  @observable count = 7;
-  @observable one = 1;
-  @observable two = 2;
-  @observable three = 3;
-  @observable four = 4;
-  @observable five = 5;
+class Person {
+  @observable firstName = "Michel";
+  @observable lastName = "Weststrate";
 
-  componentDidMount() {
-    this.updateOthers()
+  @computed get fullName() {
+    console.log("computed")
+    return this.firstName + " " + this.lastName;
   }
 
-@computed
-get total() {
-    console.log("computed called")
-    const total = this.one + this.two + this.three + this.four + this.five
-    return total 
-}
-
-updateOthers = () => {
-    console.log("before 1")
-    this.one = this.one + 1;
-    console.log("before 2")
-    this.two = this.two + 1;
-    console.log("before 3")
-    this.three = this.three + 1;
-    console.log("before 4")
-    this.four = this.four + 1;
-    console.log("before 5")
-    this.five = this.five + 1;
+  @action
+  changeFirstNameAndLastName = () => {
+    this.firstName = "mike";
+    this.lastName = "west";
+  };
 }
 
 
-//   @action.bound
-  onUpdate = () => {
-    this.count = this.count - 30;
-  }
+// Reaction: log the profile info whenever it changes
+// autorun(() => {
+//   console.log("Autorun called");
+//   console.log(newPerson.fullName);
+// });
 
-  render() {
-    return (
-      <div>
-        <p>Count: {this.count}</p>
-        <p>Total: {this.total}</p>
-        <button onClick={this.onUpdate}>Update</button>
-      </div>
-    );
-  }
-}
+// Example React component that observes state
+const Index = observer((props) => {
+  console.log("render ProfileView");
 
-// export default Counter;
+  return (
+    <div>
+      <p>{props.person.fullName}</p>
+      <button onClick={props.person.changeFirstNameAndLastName}>
+        Change first name and last name
+      </button>
+    </div>
+  );
+});
+export { Index, Person }
+// render(<ProfileView person={newPerson} />, document.getElementById("root"));

@@ -66,10 +66,16 @@ import { withRouter } from 'react-router-dom';
 import authStore from '../../../common/stores'
 import { reaction } from 'mobx';
 
+const DisplayMessage = (props) => {
+    return props.children()
+}
+
 @observer
 class SigninPage extends Component {
-    
+    usernameRef = React.createRef()
+    passwordRef = React.createRef()
     componentDidMount() {
+        this.usernameRef.current.focus()
         this.doNetworkCalls()
     }
 
@@ -102,15 +108,26 @@ class SigninPage extends Component {
     validateSignin = () => {
         authStore.authStore.validateSignin()
     }
+
+    errorHandler = () => {
+        const { isLoggedIn, username, password, noOfSubmissions } = authStore.authStore
+        if(!isLoggedIn && noOfSubmissions>0) {
+            this.passwordRef.current.focus()
+            return "Credentials didn't match with our data"
+        }
+        else {
+            return ""
+        }
+    }
     
     render() {
-        const { isLoggedIn, username, password, noOfSubmissions } = authStore.authStore
         return( 
-            <div style={{height: "100vh", width: "100vw", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
-                <input type="text" placeholder="Enter Username" value={this.getUsername()} onChange={this.updateUsername} style={{margin: "10px", border: "2px solid orange"}}/>
-                <input type="text" placeholder="Enter Password" value={this.getPassword()} onChange={this.updatePassword} style={{margin: "10px", border: "2px solid yellow"}}/>
-                <button name="SignIn Button" onClick={this.validateSignin} style={{margin: "10px", border: "2px solid black", backgroundColor: "blue", color: "white"}}>Signin</button>
-                <p data-testid="error-element">{!isLoggedIn && noOfSubmissions>0?"Credentials didn't match with our data":""}</p>
+            <div style={{height: "100vh", width: "100vw", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", border: "2px solid black"}}>
+                <input type="text" placeholder="Enter Username" ref={this.usernameRef} value={this.getUsername()} onChange={this.updateUsername} style={{margin: "10px", border: "2px solid grey", borderRadius: "2px"}}/>
+                <input type="text" placeholder="Enter Password" ref={this.passwordRef} value={this.getPassword()} onChange={this.updatePassword} style={{margin: "10px", border: "2px solid grey", borderRadius: "2px"}}/>
+                <button name="SignIn Button" onClick={this.validateSignin} style={{margin: "10px", border: "2px solid black", backgroundColor: "black", color: "white", borderRadius: "5px"}}>Signin</button>
+        <p data-testid="error-element">{this.errorHandler()}</p>
+        <DisplayMessage>{() => {return <div>Hello</div>}}</DisplayMessage>
             </div>
         );
     }
