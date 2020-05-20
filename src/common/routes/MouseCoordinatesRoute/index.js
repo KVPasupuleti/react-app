@@ -1,0 +1,1 @@
+export { MouseCoordinatesRoute } from './MouseCoordinatesRoute'

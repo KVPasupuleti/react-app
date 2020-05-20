@@ -51,7 +51,7 @@ class Home extends React.Component {
     else {
       return this.goToSigninPage()
 }
-  }
+}
 }
 
 export default Home;

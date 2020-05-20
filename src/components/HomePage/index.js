@@ -22,13 +22,21 @@ class App extends React.Component {
           Learn React
         </a>
 
-        <Link to="/exam-problems">Exam Problems</Link>
-        
-        <Link to="/page-1">Page 1</Link>
-        
+        <Link to="/practice-advanced-concepts">Practice Advanced Concepts</Link>
+
         <Link to="/countriesDashboard">CountriesDashboardApp</Link>
+
+        <Link to="/with-countries">With Countries</Link>     
+
+        {/* <Link to="/emojiGame">EmojiGame</Link>    */}
+
+        {/* <Link to="/exam-practice">Exam Practice</Link>
+
+        <Link to="/exam-problems">React Practice</Link>
         
-        <Link to="/emojiGame">EmojiGame</Link>
+        <Link to="/new-practice">New Practice</Link>
+
+        <Link to="/page-1">Page 1</Link>
         
         <Link to="/mobx-todolist">Mobx ToDoList</Link>
 
@@ -41,7 +49,7 @@ class App extends React.Component {
 
         <Link to="/counter-dashboard">Counter</Link>
 
-        <Link to="/events-app">Events App</Link>
+        <Link to="/events-app">Events App</Link> */}
         
       
       </header>

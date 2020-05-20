@@ -5,18 +5,20 @@ import Countries from './Countries';
 import NavBar from '../FormComponents/NavBar';
 import './CountriesDashboardApp.css';
 import { CountriesContainer, Paragraph } from './CSS.js';
+import withCountries from '../../common/hocs/withCountries';
 /* global fetch*/
 
 class CountriesDashboardApp extends React.Component {
 
-    state = {
+        state = {
         countries: [],
         searchText: "",
         selectedRegion: "All",
         loadingText: "Loading...."
     }
-
+    
     allCountries = [];
+    
 
     componentDidMount() {
         this.getCountries();
@@ -74,13 +76,15 @@ class CountriesDashboardApp extends React.Component {
     }
 
     render() {
+        // this.allCountries = this.props.countries
         /*
                 if (this.props.selectedTheme === null)
                     return;
         */
-
+    
         const { countries } = this.state;
         const { selectedTheme } = this.props;
+        // const selectedTheme = "dark"
         const { backgroundColor } = selectedTheme;
 
 
@@ -113,5 +117,6 @@ class CountriesDashboardApp extends React.Component {
         );
     }
 }
+
 
 export default CountriesDashboardApp;

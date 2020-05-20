@@ -53,8 +53,6 @@ class SingleCountryCard extends React.PureComponent {
             const { selectedTheme } = this.props;
             const allCountries = this.state.allCountries.slice(0);
 
-
-
             const borderCountries = country.borders.map((eachBorder) => {
                 const eachCountry = allCountries.filter((eachCountry) => eachCountry.alpha3Code === eachBorder);
                 this.borderId += 1;

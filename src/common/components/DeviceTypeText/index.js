@@ -1,0 +1,1 @@
+export { DeviceTypeText } from './DeviceTypeText'
