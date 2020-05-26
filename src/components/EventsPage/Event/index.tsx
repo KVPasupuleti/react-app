@@ -75,4 +75,14 @@ class Event extends Component<EventProps> {
     }
 }
 
+export const EditEventButtonComponent = (props) => {
+    const { children, onClick } = props;
+    return <EditEventButton onClick={onClick}>{children}</EditEventButton>
+}
+
+export const DeleteEventButtonComponent = (props) => {
+    const { children, onClick } = props;
+    return <DeleteEventButton onClick={onClick}>{children}</DeleteEventButton>
+}
+
 export default Event;

@@ -50,4 +50,9 @@ class AddEvent extends Component {
     }
 }
 
+export const AddEventButtonComponent = (props) => {
+    const { children, onClickAddEvent } = props;
+    return <AddEventButton onClick={onClickAddEvent}>{children}</AddEventButton>
+}
+
 export default AddEvent;

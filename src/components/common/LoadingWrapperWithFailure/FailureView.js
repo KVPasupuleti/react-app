@@ -9,16 +9,27 @@ import {
 
 @observer
 class FailureView extends React.Component {
+
+  dorababu = () => {
+    const {onRetryClick} = this.props
+    return onRetryClick
+  }
+
   render() {
-    const { onRetryClick, errorMessage } = this.props
+    const { onRetryClick, errorMessage, disabled } = this.props
 
     return (
       <FailureViewContainer>
         <FailureViewMessage>{errorMessage}</FailureViewMessage>
-        <RetryButton onClick={onRetryClick}>Retry</RetryButton>
+        <RetryButton onClick={this.dorababu()} disabled={disabled}>Retry</RetryButton>
       </FailureViewContainer>
     )
   }
+}
+
+export const RetryButtonComponent = (props) => {
+  const { onClick, children, disabled } = props
+  return <RetryButton onClick={onClick} disabled={disabled}>{children}</RetryButton>
 }
 
 export default FailureView

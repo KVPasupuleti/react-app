@@ -1,0 +1,1 @@
+"Hello there, this is a notes about the above component"

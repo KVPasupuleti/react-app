@@ -3,8 +3,10 @@ import styled from '@emotion/styled'
 
 
 let ProductCard = styled.div`${tw`flex flex-col border-solid m-2 w-32 items-center p-2 relative`};
-width: 200px;
-hover:border : "2px solid black"`
+width: 200px;&
+:hover {
+    border : 1px solid lightgrey
+}`
 
 let ShippingText = styled.span`${tw`absolute top-10 right-0 bg-black p-1 text-xs text-white`}`
 

@@ -1,7 +1,7 @@
 import tw from 'tailwind.macro'
 import styled from '@emotion/styled'
 
-let ProductsPageContainer = styled.div`${tw`relative`}`
+let ProductsPageContainer = styled.div`${tw`relative border`}`
 
 let SignOutButton = styled.button`${tw`border border-gray-800 p-1 rounded text-xs`}`
 

@@ -32,4 +32,9 @@ class Header extends Component<HeaderProps> {
     }
 }
 
+export const ThemeButtonComponent = (props) => {
+    const { children, onClick } = props;
+    return <ThemeButton onClick={onClick} selectedTheme="Light">{children}</ThemeButton>
+}
+
 export default Header;

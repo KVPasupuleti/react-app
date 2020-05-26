@@ -8,18 +8,28 @@ import { ProductCart } from "../../../ShoppingCart/components/ProductCart";
 import authStore from '../../../common/stores'
 import { ProductsPageContainer, ProductsDashboardContainer, HeaderAndProductsListContainer, SignOutButton } from "./styles";
 import { withRouter } from "react-router-dom";
+import { Pagination } from "../../../common/components/Pagination";
+import { observable } from "mobx";
 
 @inject('productStore', 'cartStore', 'authStore')
 @observer
 class ProductsPage extends Component {
+    @observable windowHeight = window.innerHeight
     hello = this.props.productStore
+    itemsLimit = Math.floor(window.innerHeight/250)
+
     componentDidMount() {
         this.doNetworkCalls()
     }
 
     doNetworkCalls = () => {
         const { productStore } = this.props
-        productStore.getProductList()
+        productStore.getProductList(this.itemsLimit, 0)
+    }
+
+    setItemsLimit = () => {
+        this.itemsLimit = Math.floor(window.innerHeight/250)
+        this.windowHeight = window.innerHeight
     }
 
     renderProductsList = observer(() => {
@@ -37,10 +47,14 @@ class ProductsPage extends Component {
     }
 
     render() {
+        window.addEventListener("resize", this.setItemsLimit)
+        console.log("Height", window.innerHeight, "Width", window.innerWidth)
         const { productStore } = this.props
-        const { onChangeSortBy, onSelectSize, onSubmitSearchText } = productStore
-        const { getProductListAPIStatus, getProductListAPIError, totalNoOfProductsDisplayed  } = productStore
-
+        const { onChangeSortBy, onSelectSize, onSubmitSearchText, goToNextPage, goToPreviousPage } = productStore
+        const { getProductListAPIStatus, getProductListAPIError, 
+            totalNoOfProductsDisplayed, offsetInput,
+            totalProducts, pageNumber} = productStore
+            console.log("totalProducts", totalProducts)
         return(
             <ProductsPageContainer>
             <SignOutButton onClick={this.onClickSignOut}>Sign Out</SignOutButton>
@@ -58,6 +72,9 @@ class ProductsPage extends Component {
                     />
                 </HeaderAndProductsListContainer>
             </ProductsDashboardContainer>
+            <Pagination totalProducts={totalProducts}
+                itemsLimit={this.itemsLimit} pageNumber={pageNumber} goToNextPage={goToNextPage} 
+                goToPreviousPage={goToPreviousPage}/>
             </ProductsPageContainer>
         )
     }

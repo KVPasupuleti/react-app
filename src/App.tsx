@@ -30,6 +30,7 @@ import PracticeAdvancedConceptsRoute from "./common/routes/PracticeAdvancedConce
 import EnhancedCountriesDashboard from "./common/components/CountriesDashboard";
 import SingleCountry from "./common/components/SingleCountry";
 import EnhancedSingleCountry from "./common/components/SingleCountry";
+import { CustomButton } from "./common/components/CustomButton";
 
 @observer
 class App extends React.Component{
@@ -55,11 +56,11 @@ class App extends React.Component{
     // <Provider {...stores}>
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
-      {/* <Route exact path="/e-commerce-app" component={ProductsPage}></Route>
+    {/* //   <Route exact path="/e-commerce-app" component={ProductsPage}></Route>
 
-      <Route exact path="/size-filter-module" component={SizeFilter}></Route>
+    //   <Route exact path="/size-filter-module" component={SizeFilter}></Route>
 
-      <Route exact path="/signin-page" component={SignInPage}></Route> */}
+    //   <Route exact path="/signin-page" component={SignInPage}></Route> */}
 
       {/* <Route exact path="/exam-problems">
         <IndexThemeContext.Provider value={this.state}>
@@ -73,7 +74,7 @@ class App extends React.Component{
         <Index/>
       </Route> */}
 
-      <Route exact path="/practice-advanced-concepts">
+      {/* <Route exact path="/practice-advanced-concepts">
         <PracticeAdvancedConceptsRoute/>
       </Route>
 
@@ -85,13 +86,17 @@ class App extends React.Component{
         <EnhancedSingleCountry/>
       </Route>
 
+      <Route exact path="/custom-button">
+        <CustomButton/>
+      </Route> */}
+
       {/* <Route exact path="/emojiGame">
         <EmojiGame/>
       </Route> */}
 
-      {/* <Route exact path="/new-practice">
+      <Route exact path="/new-practice">
         <NewPractice/>
-      </Route> */}
+      </Route>
 
       <Route path="/">
           <HomePage />

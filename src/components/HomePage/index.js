@@ -22,11 +22,18 @@ class App extends React.Component {
           Learn React
         </a>
 
-        <Link to="/practice-advanced-concepts">Practice Advanced Concepts</Link>
+        {/* <Link to="/practice-advanced-concepts">Practice Advanced Concepts</Link>
 
         <Link to="/countriesDashboard">CountriesDashboardApp</Link>
 
-        <Link to="/with-countries">With Countries</Link>     
+        <Link to="/with-countries">With Countries</Link>   
+
+        <Link to="/custom-button">Custom Button</Link>   */}
+
+        {/* <Link to="/exam-problems">React Practice</Link> */}
+
+        <Link to="/new-practice">New Practice</Link>
+
 
         {/* <Link to="/emojiGame">EmojiGame</Link>    */}
 

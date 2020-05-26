@@ -31,15 +31,15 @@ class AuthStore {
 
     @action.bound
     getAuthToken() {
-        // let username = Cookies.get('username')
-        // let password = Cookies.get('password')
-        // if(username !== undefined && password !== undefined) {
+        let username = Cookies.get('username')
+        let password = Cookies.get('password')
+        if(username !== undefined && password !== undefined) {
         const authPromise = this.authService.getAuthAPI()
         
         return bindPromiseWithOnSuccess(authPromise)
         .to(this.setGetAuthAPIStatus, this.setGetAuthAPIResponse)
         .catch(this.setgetAuthAPIError)
-        // } 
+        } 
     }
 
     @action.bound

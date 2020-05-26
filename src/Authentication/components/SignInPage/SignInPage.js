@@ -74,13 +74,14 @@ const DisplayMessage = (props) => {
 class SigninPage extends Component {
     usernameRef = React.createRef()
     passwordRef = React.createRef()
+    
     componentDidMount() {
         this.usernameRef.current.focus()
         this.doNetworkCalls()
     }
 
     doNetworkCalls() {
-        // authStore.authStore.getAuthToken()
+        authStore.authStore.getAuthToken()
     }
 
     accessTokenReaction = reaction(() => (authStore.authStore.access_token), (access_token) => { 
@@ -131,6 +132,17 @@ class SigninPage extends Component {
             </div>
         );
     }
+}
+
+export const InputTagComponent = (props) => {
+    const { type, placeholder, value, onChange, stylesObj } = props
+    return <input 
+            type={type} 
+            placeholder={placeholder} 
+            value={value} 
+            onChange={onChange} 
+            style={{margin: "10px", border: "2px solid grey", borderRadius: "2px"}}
+            />
 }
 
 export default withRouter(SigninPage)

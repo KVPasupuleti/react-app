@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';  
 import NoOfItemsLeft from '../NoOfItemsLeft';
 
 class Footer extends React.Component {
@@ -16,6 +16,11 @@ class Footer extends React.Component {
             </div>
         );
     }
+}
+
+export const ToDoFooterButton = (props) => {
+    const { children, onClick, style } = props
+    return <button onClick={onClick} style={style}>{children}</button>
 }
 
 export default Footer;

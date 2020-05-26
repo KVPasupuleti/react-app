@@ -6,8 +6,9 @@ import { LoadingViewContainer } from "./styledComponents";
 
 class LoadingView extends React.Component {
   render() {
+    const { style } = this.props
     return (
-      <LoadingViewContainer>
+      <LoadingViewContainer style={style}>
         <Loader />
       </LoadingViewContainer>
     );

@@ -13,6 +13,11 @@ class ProductStore {
     @observable searchText
     originalProducts
 
+    limitInput
+    offsetInput
+    totalProducts
+    pageNumber = 1
+
     constructor(productService) {
         this.productsAPIService = productService
         this.init()
@@ -28,18 +33,39 @@ class ProductStore {
     }
 
     @action.bound
-    getProductList() {
+    getProductList(limitInput, offsetInput) {
+
+        this.limitInput = limitInput;
+        this.offsetInput = offsetInput;
         
-        const productsPromise = this.productsAPIService.getProductsAPI()
+        const endPointObject = {
+            limitInput: limitInput,
+            offsetInput: offsetInput
+        }
+
+        const productsPromise = this.productsAPIService.getProductsAPI(endPointObject)
         
         return bindPromiseWithOnSuccess(productsPromise)
         .to(this.setGetProductListAPIStatus, this.setProductListResponse)
         .catch(this.setProductListAPIError)
     }
 
+    goToNextPage = (itemsLimit) => {
+        this.offsetInput = this.offsetInput + itemsLimit
+        this.pageNumber++
+        this.getProductList(this.limitInput, this.offsetInput)
+    }
+
+    goToPreviousPage = (itemsLimit) => {
+        this.offsetInput = this.offsetInput - itemsLimit
+        this.pageNumber--
+        this.getProductList(this.limitInput, this.offsetInput)
+    }
+
     @action.bound
     setProductListResponse(productListResponse) {
-        this.productList = productListResponse.map(eachProduct => {
+        this.totalProducts = productListResponse.total
+        this.productList = productListResponse.products.map(eachProduct => {
             const productObject = new Product(eachProduct)
             return productObject
         })
